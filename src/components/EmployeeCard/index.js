@@ -1,27 +1,29 @@
 import React, { Component, Fragment } from 'react';
+import classNames from 'classnames';
 import './styles.css'
 
 class employeeCard extends Component {
     constructor() {
         super();
         this.state = {
-            toggleModelPopOver: false
+            shouldDisplayModelPopover: false
         }
     }
 
     toggleModelPopOver = () => {
         this.setState({
-            toggleModelPopOver: !this.state.toggleModelPopOver
+            shouldDisplayModelPopover: !this.state.shouldDisplayModelPopover
         })
     };
 
     render() {
         const { employee = {} } = this.props;
-        console.log(this.state.toggleModelPopOver);
+        const { shouldDisplayModelPopover } = this.state;
+        console.log(this.state.shouldDisplayModelPopover);
         const {age, avatar, bio, dateJoined, firstName, id, jobTitle, lastName} = employee;
 
         return <Fragment>
-            <div className="employeeCard" onClick={this.toggleModelPopOver}>
+            <div className={classNames("employeeCard", {highlight: shouldDisplayModelPopover})} onClick={this.toggleModelPopOver}>
                 <div className="avatar">
                     <img src={avatar}/>
                 </div>
@@ -30,11 +32,22 @@ class employeeCard extends Component {
                     <p>{jobTitle}</p>
                 </div>
             </div>
-            {this.state.toggleModelPopOver && <div className={"employeeDetailPopOver"}>
-                <div className={"employeeDetailOverlay"}></div>
+            {shouldDisplayModelPopover && <div className={"employeeDetailPopOver"}>
+                <div className={"employeeDetailOverlay"} onClick={this.toggleModelPopOver}></div>
                 <div className={"employeeDetailModel"}>
                     <div className={"closeModel"}><span onClick={this.toggleModelPopOver}>x</span></div>
-                    <div className={"employeeDetail"}>hello</div>
+                    <div className={"employeeDetail"}>
+                       <div className="avatar">
+                          <img src={avatar}/>
+                          <div><strong>{jobTitle}</strong></div>
+                          <div>{age}</div>
+                          <div>{dateJoined}</div>
+                       </div>
+                       <div className="info">
+                           <h2>{firstName} {lastName}</h2>
+                           <p>{bio}</p>
+                       </div>
+                    </div>
                 </div>
             </div>}
 

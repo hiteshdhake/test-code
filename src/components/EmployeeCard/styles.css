@@ -6,12 +6,23 @@
     /*flex-wrap: wrap;*/
 }
 
-.employeeCard .avatar {
+.employeeCard .avatar,
+.employeeDetail .avatar {
     flex-basis: 35%;
 }
 
-.employeeCard .info {
+.employeeCard .avatar {
+    border-right: 1px solid;
+}
+
+.employeeDetail .avatar img {
+    border: 1px solid;
+}
+
+.employeeCard .info,
+.employeeDetail .info {
     flex-basis: 65%;
+    padding-left: 10px;
 }
 
 .employeeDetailOverlay {
@@ -38,10 +49,21 @@
 .employeeDetail {
     background: white;
     height: calc(100% - 10%);
+    border: 1px solid;
+    padding: 20px;
+    display: flex;
 }
 
 .closeModel {
   height: 10%;
   font-size: 2em;
   text-align: end;
+}
+
+.highlight {
+    background: antiquewhite;
+}
+
+.info h2 {
+  border-bottom: 1px solid;
 }
