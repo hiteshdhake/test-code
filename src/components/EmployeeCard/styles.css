@@ -1,0 +1,47 @@
+.employeeCard {
+    display: flex;
+    width: 30%;
+    border: 1px solid;
+    margin-bottom: 20px;
+    /*flex-wrap: wrap;*/
+}
+
+.employeeCard .avatar {
+    flex-basis: 35%;
+}
+
+.employeeCard .info {
+    flex-basis: 65%;
+}
+
+.employeeDetailOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: .7;
+}
+
+.employeeDetailModel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 65%;
+    height: 65%;
+    transform: translate(-50%, -50%);
+}
+
+.employeeDetail {
+    background: white;
+    height: calc(100% - 10%);
+}
+
+.closeModel {
+  height: 10%;
+  font-size: 2em;
+  text-align: end;
+}

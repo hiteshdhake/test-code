@@ -1,0 +1,10 @@
+main {
+    padding: 0 15px;
+}
+
+.employeeCardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
